@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/app_bloc_observer.dart';
 import 'package:weather_app/bloc/weather_bloc.dart';
 import 'package:weather_app/data/data_provider/weather_data_provider.dart';
 import 'package:weather_app/data/repository/weather_repository.dart';
 import 'package:weather_app/presentation/screens/weather_screen.dart';
 
 void main() {
+  Bloc.observer = AppBlocObserver();
   runApp(const MyApp());
 }
 

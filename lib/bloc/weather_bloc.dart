@@ -11,24 +11,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     on<WeatherFetched>(_getCurrentWeather);
   }
 
-  // @override
-  // void onError(Object error, StackTrace stackTrace) {
-  //   super.onError(error, stackTrace);
-  //   print(error);
-  // }
-
-  // @override
-  // void onTransition(Transition<WeatherEvent, WeatherState> transition) {
-  //   super.onTransition(transition);
-  //   print('Transition: $transition');
-  // }
-
-  // @override
-  // void onEvent(WeatherEvent event) {
-  //   super.onEvent(event);
-  //   print('Event: $event');
-  // }
-
   void _getCurrentWeather(
       WeatherFetched event, Emitter<WeatherState> emit) async {
     emit(WeatherLoading());
@@ -39,6 +21,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherSuccess(weatherModel: weather, cityName: cityName));
     } catch (e) {
       emit(WeatherFailure(e.toString()));
+      addError(e, StackTrace.current);
     }
   }
 }

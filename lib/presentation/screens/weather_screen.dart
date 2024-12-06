@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -141,7 +140,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       final hourlySky =
                           data.hourlyWeather[index + 1]['weather'][0]['main'];
                       final hourlyTemp = data.hourlyTemp.ceil();
-                      log(hourlyTemp.toString());
                       final time = DateTime.parse(hourlyForecast['dt_txt']);
                       return HourlyForecastItem(
                         time: DateFormat.j().format(time),

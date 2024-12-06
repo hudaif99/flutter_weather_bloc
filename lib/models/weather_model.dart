@@ -54,7 +54,6 @@ class WeatherModel {
   }
 
   factory WeatherModel.fromMap(Map<String, dynamic> map) {
-    print(map);
     final currentWeatherData = map;
     return WeatherModel(
       currentTemp: currentWeatherData['list'][0]['main']['temp'],
